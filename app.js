@@ -2,7 +2,7 @@ function agregaTarea(datos) {
     let html = `<li class="list-group-item" id="${datos.id}">
         <div class="row">
             <div class="col-1 d-flex">
-                <input type="checkbox" class="form-control align-self-center">
+                <input type="checkbox" class="form-control align-self-center" onchange="cambiarEstatusTarea('${datos.id}')">
             </div>
             <div class="col-10 row m-0">
                 <div class="col-9 h5">
@@ -31,6 +31,10 @@ function muestraAlerta(mensaje) {
 
 function borrarTarea(id) {
     $("#" + id).remove();
+}
+
+function cambiarEstatusTarea(id) {
+    $("#" + id).toggleClass("bg-tarea");
 }
 
 $(document).ready(function(){
